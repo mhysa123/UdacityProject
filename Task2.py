@@ -53,5 +53,9 @@ def check_dictionary(calls_table):
             spend_time = int(conn_dictionary[call[1]])
             conn_dictionary[call[1]] = spend_time + int(call[3])
     """sort the dictionary by the value an then get the fist item"""
+    #print(sorted(conn_dictionary.items(), key=lambda e:e[1], reverse=True))
     return sorted(conn_dictionary.items(), key=lambda e:e[1], reverse=True)[0]
-print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(check_dictionary(calls)[0],check_dictionary(calls)[1]))
+longget_time = check_dictionary(calls)
+code = longget_time[0]
+seconds = longget_time[1]
+print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(code,seconds))

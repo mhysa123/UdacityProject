@@ -33,10 +33,19 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
-telemarketers = []
+telemarketers = set()
+
 for call in calls:
     if str(call[0]).startswith("140"):
-        telemarketers.append(call[0])
+        telemarketers.add(call[0])
+for call in calls:
+    if call[1] in telemarketers:
+        telemarketers.remove(call[1])
+for text in texts:
+    if text[0] in telemarketers :
+        telemarketers.remove(text[0])
+    elif text[1] in telemarketers:
+        telemarketers.remove(text[1])
 print("These numbers could be telemarketers: {}{}".format("\n","\n".join(sorted(set(telemarketers)))))
 
 

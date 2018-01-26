@@ -78,4 +78,4 @@ def area_num(calls_table):
                 area_numbers.append("140")
     return sorted(set(area_numbers))
 print("The numbers called by people in Bangalore have codes: {}{}".format("\n","\n".join(area_num(calls))))
-print("{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(round((float(sum1)/len(area_numbers))*100),2))
+print("{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format((round((float(sum1)/len(area_numbers)),4)*100)))
