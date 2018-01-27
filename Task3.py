@@ -61,15 +61,17 @@ The percentage should have 2 decimal digits
 """
 # a param store area numbers
 area_numbers = []
+called_numbers = []
 sum1 = 0
 def area_num(calls_table):
     global sum1
     for call in calls_table:
         if '(080)' in call[0]:
+            if str(call[1]).startswith("(080)"):
+                called_numbers.append(call[1])
             """judge the different situations for the number called"""
             if str(call[1]).startswith("("):
                 #print(str(call[1])[0:str(call[1]).rfind(")")+1])
-                sum1 +=1
                 area_numbers.append(str(call[1])[0:str(call[1]).rfind(")")+1])
             elif " " in call[1]:
                 area_numbers.append(call[1][0:4])
@@ -78,4 +80,6 @@ def area_num(calls_table):
                 area_numbers.append("140")
     return sorted(set(area_numbers))
 print("The numbers called by people in Bangalore have codes: {}{}".format("\n","\n".join(area_num(calls))))
-print("{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format((round((float(sum1)/len(area_numbers)),4)*100)))
+#print(len(called_numbers))
+#print(len(area_numbers))
+print("{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format((round((float(len(called_numbers))/len(area_numbers)),4)*100)))

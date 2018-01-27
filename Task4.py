@@ -36,8 +36,7 @@ The list of numbers should be print out one per line in lexicographic order with
 telemarketers = set()
 
 for call in calls:
-    if not str(call[0]).startswith("140"):
-        telemarketers.add(call[0])
+     telemarketers.add(call[0])
 for call in calls:
     if call[1] in telemarketers:
         telemarketers.remove(call[1])
